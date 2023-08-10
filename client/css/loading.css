@@ -1,0 +1,24 @@
+.loading{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+  gap: 20px;
+}
+
+.loader{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0);
+  border: 15px solid rgba(255, 255, 255, 0);
+  border-top-color: rgb(224, 109, 8);
+animation: loadingAnimation 1s ease infinite;
+}
+
+@keyframes loadingAnimation{
+    from {transform: rotate(0turn)}
+    to {transform: rotate(1turn);}
+}

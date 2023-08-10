@@ -1,0 +1,269 @@
+:root{
+    --p-fontSize:1rem;
+    --h1-fontSize:3.3rem;
+    --p-color:rgb(211, 211, 211);
+    --h1-color:rgb(241, 241, 241);
+    --gap-main:40px;
+    --gap-text:30px;
+    --gap-signupInputs:18px;
+    --forgotpassword-color:rgb(225, 225, 225);
+    --error-color:#FB3640;
+    --gap-form:50px;
+    --input-colors:#2D455E;
+    --btn-color:#EE6F00;
+}
+
+
+.signup{
+    min-height: 100svh;
+    height: auto;
+    background-image: url('https://res.cloudinary.com/dldonwgcr/image/upload/v1691084869/layered-waves-haikei_1_ucoppd.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+.signup_section{
+ width: 80%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.signup_logo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.signup_logo p{
+color: rgb(207, 207, 207);
+font-family:'Yaldevi',sans-serif;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.signup_logo img{
+    width: 25px;
+    height: 25px;
+}
+
+.signup_main{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction:column;
+    gap:var(--gap-main);
+    max-width: calc(470px * 80/100);
+}
+
+.signup_text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: var(--gap-text);
+}
+
+.signup_text h1{
+    color: #FFF;
+    font-family: 'Abril Fatface',cursive;
+font-size:var(--h1-fontSize);
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.signup_text p{
+    color:var(--p-color);
+    font-family: 'Poppins', sans-serif;
+font-size:var(--p-fontSize);
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.signup_inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-signupInputs);
+}
+
+.signup_inputs input{
+    width: 85%;
+    height: 45px;
+    background-color:var(--input-colors);
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    color: white;
+    padding-left: 15px;
+    min-width: 183px;
+    box-shadow: 1px 1px 5px rgb(7, 7, 7);
+  font-size: 0.9rem;
+}
+
+.signup_inputs div{
+ text-align: center;
+ width: 100%;
+}
+
+.signup_inputs div h2{
+    font-size: 0.9rem;
+    color:var(--error-color);
+}
+
+.signup_password{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    justify-content: center;
+    align-items: first baseline;
+    position: relative;
+}
+
+.signup_password div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 1.1875rem;
+}
+
+.signup_password div input{
+  width: 96%;
+}
+
+.signup_password input{
+    margin-left: 1%;
+}
+
+.signup_password span{
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.signup_inputs p{
+    width:90%;
+    min-width:183px;
+    text-align: right;
+  color:var(--forgotpassword-color);
+  font-family:'Poppins', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  text-shadow: 1px 1px 0.5px black;
+}
+
+.signup_sumbit{
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 12px;
+}
+
+.signup_sumbit button{
+    width: 90%;
+height: 45px;
+border-radius: 15px;
+background-color:var(--btn-color);
+color: #d6d6d6;
+text-align: center;
+font-family:sans-serif;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+border: 0;
+outline: 0;
+transition: all 0.1s ease-in-out;
+min-width: 183px;
+max-width: calc(469px * 80/100);
+border: 1px solid black;
+}
+
+
+.signin_option{
+    display: flex;
+    gap: 15px;
+}
+
+.signin_option p{
+    font-size:1rem;
+    color: rgb(18, 17, 17);
+    cursor: default;
+  }
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap:var(--gap-form);
+}
+
+#register_error_message{
+  color: rgb(226, 226, 226);
+  background-color: rgb(187, 5, 5);
+  justify-content: center;
+  display: flex;
+  max-width: 400px;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  min-height: 80px;
+  text-align: center;
+  width: 60%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius:10px;
+  padding: 5px;
+}
+
+#register_error_message p{
+    font-size: 1.4rem;
+    font-family: 'Oswald';
+}
+
+#register_error_message span{
+ font-size: 1.8rem;
+ color: orange;
+}
+
+@media only screen and (min-width:900px){
+    .signup_main{
+        transform: scale(1.1);
+    }
+
+    .signin_option a{
+        color: rgb(50, 107, 253);
+      }
+}
+
+@media only screen and (min-width:1250px){
+    .signin_option p{
+        color:var(--forgotpassword-color);
+    }
+}
+
+@media only screen and (max-height:500px){
+    .signup_main{
+        transform: scale(0.8);
+        margin: 0;
+    }
+    .signup_section{
+        justify-content:last baseline;
+    }
+}
+
+@media(hover:hover){
+    .signup_sumbit button:hover{
+        transform: scale(1.03);
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+.Navbar{
+    display: flex;
+}
+.logo{
+    padding: 10px;
+    display: flex;
+    height: 25px;
+    align-items: center;
+}
+.logo p{
+    color: #FFF;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 17px;
+    font-family: 'Yaldevi', sans-serif;
+}
+.logo img{
+    width: 30px;
+height: 30px;
+flex-shrink: 0;
+}
+
+.navigation{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 17px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.navigation button{
+    width: 35px;
+    height: 35px;
+    font-size: 1.4rem;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.navigation_p{
+    display: none;
+    flex-direction: column;
+    display: none;
+    text-align: center;
+    border: 1px solid rgb(203, 203, 203);
+    width: 100px;
+    gap: 10px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+}
+
+.navigation_p p{
+    padding: 5px;
+  font-size: 20px;
+  color: rgb(211, 211, 211);
+  font-family: 'Yaldevi', sans-serif;
+  transition: all 0.1s;
+}
+
+.navigation_p p:hover{
+    transform: scale(1.1);
+   cursor: pointer;
+}
+
+@media only screen and (min-width:700px){
+    .Navbar{
+        align-items: center;
+    }
+    .navigation_p{
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        gap: 1.3rem;
+        width: auto;
+        border: none;
+        position: relative;
+        top: auto;
+        right:auto;
+    }
+    .navigation_p p{
+        padding-top: 0px;
+        font-size: 22px;
+    }
+    .navigation button{
+        display: none;
+    }
+}

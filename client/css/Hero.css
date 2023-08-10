@@ -1,0 +1,20 @@
+.HeroSection{
+    height: 90svh;
+    background-color: black;
+    background-image: url('https://res.cloudinary.com/dldonwgcr/image/upload/v1691072885/wave-haikei_3_qzlwmb.png');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Hero_content_div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  max-width:940px;
+  height: 100%;
+}
+

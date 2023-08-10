@@ -1,0 +1,130 @@
+
+.footer{
+    background-image: url('https://res.cloudinary.com/dldonwgcr/image/upload/v1691072885/wave-haikei_3_qzlwmb.png');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.footer_section{
+    width: 80%;
+    max-width: 940px;
+}
+
+.all_content{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  width: 100%;
+  gap: 50px;
+}
+
+.email_phone{
+    display: none;
+    flex-direction: column;
+  width: 100%;
+  gap: 25px;
+}
+.email_phone div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.email{
+    margin-top: 30px;
+}
+
+.email_phone div img{
+    width: 35px;
+    height: 35px;
+}
+
+.email_phone div span{
+    color: #e0e0e0;
+font-family:'Source Sans 3', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.social_media{
+    display: flex;
+    flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  gap: 25px;
+}
+
+.social_media span{
+    font-size: 25px;
+    margin-top: 10px;
+    color: white;
+}
+
+.icons img{
+    width:45px;
+    height: 45px;
+    transition: all 0.1s ease-in;
+}
+.icons{
+    display: flex;
+    gap: 30px;
+}
+
+.copyright{
+    margin-top: 30px;
+    font-size: 10px;
+    text-align:right;
+}
+.copyright p{
+    color: rgb(221, 221, 221);
+}
+
+.icons img:hover{
+    cursor: pointer;
+    transform: scale(1.4);
+}
+
+
+@media only screen and (min-width:850px){
+    .all_content{
+        flex-direction: row;
+    }
+
+    .email_phone{
+        display: flex;
+    }
+
+   .social_media span{
+   display: none;
+   }
+
+    .email_phone div{
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .social_media{
+        flex-direction: row;
+    }
+
+    .icons{
+    gap: 30px;
+    }
+    .icons img{
+        width: 35px;
+        height: 35px;
+    }
+
+    .icons img{
+        transform: scale(1.3);
+    }
+}
