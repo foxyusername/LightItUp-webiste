@@ -9,8 +9,9 @@ export default function Hero({scroll}){
   const [authenticated,setAuthenticated]=useState(false);
 
   useEffect(()=>{
-  axios.get('http://localhost:3000/isAuth').then((res)=>{
-    
+  axios.get('http://localhost:3000/isAuth',{
+    withCredentials:true
+  }).then((res)=>{
     if(res.data===true){
       setAuthenticated(true);
     }else{

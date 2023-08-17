@@ -1,0 +1,261 @@
+:root{
+    --shop_backgroundColor:#f4f4f4;
+    --shop_hero_color:#E78635;
+}
+
+
+
+.shop_heropage{
+  height: auto;
+  min-height: 95svh;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  background-image: url('https://res.cloudinary.com/dldonwgcr/image/upload/v1691735943/wave-haikei_5_d5ttv8.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.shop_hero_section{
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.shop_hero_navbar{
+   display: flex; 
+   justify-content: space-between;
+   align-items: center;
+}
+.shop_hero_logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.shop_hero_logo img{
+    width: 20px;
+    height:20px;
+}
+.shop_hero_logo p{
+    color: #000;
+font-family: 'Yaldevi';
+font-size: 0.7rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.shop_hero_navigate{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.shop_hero_navigate img{
+    width: 45px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    border-radius:50%;
+    cursor: pointer;
+}
+
+.shop_hero_hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.shop_hero_hamburger div{
+    position: absolute;
+    padding: 3px;
+    background-color: var(--shop_hero_color);
+    text-align: center;
+    top:2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 1px 1px 6px rgb(29, 29, 29);
+}
+
+.contact_cart{
+  display: flex;
+  gap: 15px;
+  font-size: 1.2rem;
+  color: #282828;
+  font-family: 'Yaldevi';
+  cursor: pointer;
+}
+
+.contact_cart p{
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.shop_hero_hamburger p{
+  font-size: 1.5rem;
+  color: rgb(50, 50, 50);
+  transition: all 0.2s ease;
+ cursor: pointer;
+}
+
+.shop_hero_hamburger div{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 2;
+}
+
+.shop_hero_hamburger div p{
+    font-size: 1.4rem;
+    color: rgb(236, 236, 236);
+    font-family: 'Yaldevi';
+    padding: 2px;
+}
+
+.shop_hero_heading{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: auto;
+}
+
+.shop_hero_heading img{
+  display: none;
+  width: 100%;
+  height: 320px;
+  max-width:calc(550px * 80/100);
+}
+
+.shop_heading_text{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.shop_heading_text h2{
+    max-width: 450px;
+    color: #363636;
+    font-family: Ponnala;
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 400;
+}
+.shop_heading_text button{
+    width: 200px;
+    height: 40px;
+    color: #181818;
+font-family: Abril Fatface;
+font-size:1.3rem;
+font-style: normal;
+font-weight: 400;
+background-color:var(--shop_hero_color);
+border: 0;
+outline: 0;
+}
+
+.userImage{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.userImage h2{
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.userImage_info{
+    position: absolute;
+    top: 70px;
+    text-align: center;
+    right: -40px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 5px black;
+    border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   padding: 5px;
+   transform: scale(0.8);
+   background-color: white;
+}
+
+.userImage_info p{
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: rgb(6, 6, 6);
+    background-color:#f09f5d;
+    border-radius: 10px;
+    padding:3px;
+}
+
+
+@media only screen and (min-width:750px){
+
+   .userImage_info{
+    transform: scale(1);
+    right: -70px;
+   }
+
+    .shop_hero_navigate img{
+        width: 55px;
+        height: 55px;
+    }
+
+    .shop_hero_heading img{
+        display: block;
+    }
+    .shop_hero_heading{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .shop_hero_heading img{
+      height: 420px;
+    }
+
+      .shop_heading_text{
+        text-align: left;
+        align-items: flex-start;
+        gap: 30px;
+        align-self: flex-start;
+        margin-top: 50px;
+      }
+
+    .shop_heading_text h2{
+        font-size: 1.7rem;
+        line-height: 35px;
+        max-width: 450px;
+    }
+
+   .contact_cart{
+    font-size: 1.4rem;
+   }
+}
+
+@media (hover:hover){
+    .shop_heading_text button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.2s ease; 
+    }
+
+    .contact_cart p:hover{
+        transition: all 0.05s ease;
+        background-color:#07477b;
+        color: white;
+    }
+}

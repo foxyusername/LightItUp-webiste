@@ -1,20 +1,39 @@
-import axios from 'axios'
-import React from 'react'
+import axios from 'axios';
+import React from 'react';
+import "../css/shop.css";
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
-function Shop() {
+import Hero from '../shop_components/Hero';
+import Trending from '../shop_components/Trending';
+import NewArrival from '../shop_components/NewArrival';
+import Allproducts from '../shop_components/Allproducts';
+import Footer  from "../home_components/Footer";
 
-let history=useNavigate();
+function Shop(){
 
-function logOut(){
-  axios.post('http://localhost:3000/logOut').then((res)=>{
-    console.log(res.data);
-    history('/');
-}).catch((err)=>console.log(err));
+const ref=useRef();
+
+  function scroll(){
+  ref.current.scrollIntoView({behavior:'smooth'});
   }
 
-  return <div>
-    <button onClick={logOut}>Log out</button>
+  return <div className='shop'>
+  <Hero scroll={scroll}/>
+  <div className='shop_content_section'>
+  <Trending />
+  <NewArrival />
+</div>
+
+<div className='allproducts_header'>
+    <h1>All products</h1>
+  </div>
+
+  <div className='shop_content_section' ref={ref}>
+   <Allproducts />
+  </div>
+  <Footer />
+
   </div>
 }
 

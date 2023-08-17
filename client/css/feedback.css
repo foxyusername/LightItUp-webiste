@@ -85,6 +85,58 @@ box-shadow: 3px 3px 10px black;
 cursor: pointer;
 }
 
+.succesfull_sent_message{
+    position:fixed;
+    background-color:rgb(255, 255, 255);
+    color: rgb(22, 22, 22);
+    width: 80%;
+    height: 30%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 300px;
+    box-shadow:2px 2px 7px black;
+}
+
+.succesfull_sent_message img{
+    width: 70px;
+    height: 70px;
+}
+
+.succesfull_sent_message div{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   gap:10px;
+}
+
+.succesfull_sent_message button{
+    width: 70%;
+    color: rgb(60, 60, 60);
+    height: 35px;
+    font-size: 1.15rem;
+    border-radius: 0px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.succesfull_sent_message p{
+    font-size: 1.4rem;
+    font-family:Yaldevi;
+}
+
+
+
 @media only screen and (min-width:850px){
     .feedback_input button{
         background-color: var(--feedback-btn-color);

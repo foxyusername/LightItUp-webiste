@@ -1,0 +1,107 @@
+.shop_trending{
+display: flex;
+align-items: center;
+flex-direction: column;
+gap:var(--gap-shop-main);
+}
+
+.shop_trending h1{
+    font-size: 3.5rem;
+    margin-top:var(--marginTop-shop-heading);
+    background: linear-gradient(to right,var(--shop_hero_color),rgb(100, 100, 100));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+font-family: Abril Fatface;
+font-size:4rem;
+font-style: normal;
+font-weight: 400;
+}
+
+.shop_trending_content{
+    width: 100%;
+    max-width:1000px;
+    display:grid;
+    justify-content: center;
+    grid-template-columns:repeat(auto-fit,280px);
+    gap: 100px;
+}
+
+
+.content_main_div{
+    width: 100%;
+    max-width: 280px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+#content_img{
+    width: 100%;
+    height:80%;
+}
+
+.decription_price_img{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.decription_price_img img{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+.description_price{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+}
+
+.description_price h3{
+    font-size:1.1rem;
+    color: rgb(38, 38, 38);
+}
+
+.description_price p{
+    font-size: 1rem;
+    font-family: abril fatface;
+}
+
+
+#checkmark img{
+   transform: rotateY(0deg);
+}
+
+@media only screen and (min-width:740px){
+ .shop_trending_content{
+    grid-template-columns: repeat(3,1fr);
+   justify-content: space-between; 
+   gap: 30px;
+}
+
+.description_price {
+    align-items: flex-start;
+    text-align: left;
+    margin-right: auto;
+}
+
+.decription_price_img{
+    flex-direction: row;
+}
+
+ .content_main_div{
+    width: 100%;
+    max-width: 300px;
+    height: 360px;
+}
+
+}
+ 

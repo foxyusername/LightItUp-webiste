@@ -198,7 +198,8 @@ border: 1px solid black;
 
 .signin_option p{
     font-size:1rem;
-    color: rgb(18, 17, 17);
+    color: rgb(65, 65, 65);
+    text-shadow:1px 1px 5px white;
     cursor: default;
   }
 
@@ -233,6 +234,10 @@ form{
 #register_error_message span{
  font-size: 1.8rem;
  color: orange;
+}
+
+.signin_option a{
+    color: blue;
 }
 
 @media only screen and (min-width:900px){

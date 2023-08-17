@@ -46,6 +46,8 @@ axios.post('http://localhost:3000/verifycode',{
   username: username,
   email:email,
   password: password
+ },{
+  withCredentials:true
  }).then((res)=>{
   if(res.data==='authorized unsuccesfully'){
     setShowError(true);
@@ -54,6 +56,7 @@ axios.post('http://localhost:3000/verifycode',{
     history('/shop');
     sessionStorage.removeItem('submited');
   }
+  console.log(res);
  }).catch((err)=>console.log(err))
 
   } 

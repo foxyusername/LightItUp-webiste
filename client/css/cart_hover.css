@@ -1,0 +1,68 @@
+@media (hover:hover){
+    #cart:hover::after {
+        content: "Add to Cart";
+        position: absolute;
+        top: 0%;
+        left: 76%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(148, 90, 2, 0.807);
+        color: white;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+    }
+    
+    #cart:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    #cart:hover::after,
+    #cart:hover::before {
+        opacity: 1;
+    }
+    
+    #checkmark:hover::after {
+        content: "Remove from cart";
+        position: absolute;
+        top: 0%;
+        left: 70%;
+        transform: translate(-50%,-50%);
+        background-color: rgba(148, 90, 2, 0.997);
+        color: white;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    #checkmark:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    #checkmark:hover::after,
+    #checkmark:hover::before {
+        opacity: 1;
+    }
+
+
+}

@@ -1,0 +1,31 @@
+.shop{
+ display: flex;
+ flex-direction: column;
+ background-color: var(--shop_backgroundColor);
+}
+.shop_content_section{
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.allproducts_header{
+    margin-top:60px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://res.cloudinary.com/dldonwgcr/image/upload/v1691868513/circle-scatter-haikei_7_m8o3ps.png');
+    height: 130px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.allproducts_header h1{
+    font-family: abril fatface;
+    font-size: 3.5rem;
+    color: whitesmoke;
+}

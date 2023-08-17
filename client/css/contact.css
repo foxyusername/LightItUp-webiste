@@ -1,0 +1,234 @@
+.contact_main_div{
+    background-color:rgb(252, 219, 170);
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+}
+
+.contact_main{
+margin: auto;
+max-width: calc(1100px * 80/100);
+background-color: white;
+width: 80%;
+display: flex;
+flex-direction: column;
+gap:10px;
+padding: 10px;
+box-shadow: 2px 2px 10px black;
+transform: scale(0.9);
+}
+
+.contact_main_info{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   padding: 10px;
+   border-bottom: 2px solid black;
+}
+
+.contact_main_info section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact_main_info section p{
+    font-size: 1.3rem;
+    color: rgb(54, 54, 54);
+}
+
+.contact_main_message{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact_main_heading{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact_main_heading h1{
+    font-family: abril fatface;
+    background: linear-gradient(to right,rgb(192, 110, 16),rgb(255, 165, 29));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+}
+
+.contact_main_heading p{
+    font-family: poppins;
+}
+
+.contact_main_inputs{
+display: flex;
+flex-direction: column;
+width: 100%;
+align-items: center;
+}
+
+.contact_main_inputs form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 25px;
+}
+
+.contact_main_inputs input{
+    width: 80%;
+    height: 30px;
+    border:0;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    font-size: 1rem;
+    max-width: 400px;
+    outline: none;
+    border-radius: 0px;
+}
+
+.contact_main_inputs textarea{
+    height: 150px;
+    font-size: 1rem;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid black;
+    max-width: 400px;
+    word-break:break-all;
+    outline: none;
+    border-radius: 5px;
+}
+
+.contact_main_inputs button{
+    margin-top: 20px;
+    width:80%;
+    height: 40px;
+    font-size: 1.2rem;
+    font-family:abril fatface;
+    border-radius: 10px;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    margin-bottom: 10px;
+    max-width: 400px;
+}
+
+.succesfull_sent_message{
+    position:fixed;
+    background-color:rgb(255, 255, 255);
+    color: rgb(22, 22, 22);
+    width: 80%;
+    height: 30%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 300px;
+    border: 2px solid black;
+    box-shadow: 2px 2px 10px black;
+}
+
+.succesfull_sent_message img{
+    width: 70px;
+    height: 70px;
+}
+
+.succesfull_sent_message div{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   gap:10px;
+}
+
+.succesfull_sent_message button{
+    width: 70%;
+    color: rgb(60, 60, 60);
+    height: 35px;
+    font-size: 1.15rem;
+    border-radius: 0px;
+    background: transparent;
+    border: 2px solid black;
+    outline: 0;
+}
+
+.succesfull_sent_message p{
+    font-size: 1.4rem;
+    font-family:Yaldevi;
+}
+
+
+
+
+@media only screen and (min-width:800px){
+
+.succesfull_sent_message{
+ height: 40%;    
+ max-width: 320px;
+}
+
+.succesfull_sent_message button{
+ border-radius: 10px;
+ cursor: pointer;
+}
+
+    .contact_main_heading h1{
+        font-size: 3.5rem;
+    }
+
+    .contact_main_heading p{
+        font-size: 1.1rem;
+    }
+
+   .contact_main{
+    flex-direction: row;
+    height:auto;
+   }
+   .contact_main_message{
+    width: 100%;
+   }
+   .contact_main_info{
+    border-bottom: 0;
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+   }
+
+  .contact_main_info section{
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+
+   .contact_main_info h2{
+    font-size:2rem;
+   }
+
+   .contact_main_inputs input{
+    font-size: 1.1rem;
+   }
+
+   .contact_main_inputs button{
+    font-size: 1.4rem;
+   }
+
+}
+
+
+@media (hover:hover){
+    .contact_main_inputs button:hover{
+        cursor: pointer;
+        transition: all 0.1s ease;
+        transform: scale(1.05);
+    }
+}

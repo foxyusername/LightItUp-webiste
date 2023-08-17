@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Outlet,Navigate } from 'react-router-dom';
-import Loading from './src/Loading';
+import Loading from '../src/Loading';
 
 function Middleware({get}) {
   const [isAuthenticated, setIsAuthenticated] = useState(null); // Use null as initial value for loading state
 
   useEffect(() => {
-    axios.get('http://localhost:3000/isAuth')
-      .then((res) => {
+    axios.get('http://localhost:3000/isAuth',{
+      withCredentials:true,
+    }).then((res) => {
+        console.log(res.data);
         if(res.data===true){
           setIsAuthenticated(res.data === true);
         }else{
