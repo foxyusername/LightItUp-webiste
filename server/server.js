@@ -3,35 +3,48 @@ const app=express();
 const nodemailer=require('nodemailer');
 const cors=require('cors');
 const bcrypt=require('bcrypt');
-const jwt=require('jsonwebtoken');
 const cookieParser=require('cookie-parser');
-const sessionVal=require('express-session');
+const jwt=require('jsonwebtoken');
+const bodyParser=require('body-parser');
 
-const isAuth=require('./middleware');
 const pool=require('./database');
 const port=3000;
 const secret_key='secret';
 
-
-app.use(sessionVal({
-    secret: secret_key,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false, httpOnly: true, maxAge: 3600000 }, // Cookie settings
-  }));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({credentials:true,origin:'http://localhost:5173'}));
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({
+  extended:true
+}));
 
 
+const isAuth = (req, res, next) => {
+
+  if(req.cookies.accesToken){
+  jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+    if(err){
+      res.send('invalid token value');
+      console.log('invalid token');
+    }else{
+      console.log('authenticated succesfully');
+     next();
+    }
+
+  })
+  }else if(req.cookies.accesToken===undefined){
+    console.log('no token presented');
+    res.send('no token presented')
+  }
+}
+
+app.use('/logout',isAuth);
 
 
 let max=9999;
 let min=1000;
 let code;
-let session;
 
 function sendEmail(to){
 
@@ -52,7 +65,7 @@ function sendEmail(to){
         subject:'Email verification',
         html:'<h3>verification code is '+code+'</h3>'
     }  
-    transporter.sendMail(email).then((res)=>console.log(res)).catch((err)=>console.log(err));
+    transporter.sendMail(email).then((res)=>console.log('email sent succesfully')).catch((err)=>console.log(err));
 }
 
 function registerUser(req,email,username,password){
@@ -87,31 +100,39 @@ app.post('/verifycode',(req,res)=>{
    if(inputValue===''+code+'' && inputValue.length>0){
       registerUser(req,email,username,password);
 
-      session=req.session;
-      session.isAuthenticated=true;
-      
-      session.email=email;
-      session.username=username;
-      session.password=password;    //setting session true so user dont have to 
+    let token=jwt.sign({email:email,password:password},secret_key);
     
-      res.status(200).json('authorized succesfully');
+    res.cookie('accesToken',token,{
+      httpOnly: true,
+      secure: false,
+      expiresIn: 432000000 // 5 days
+    });
+
+    res.status(200).json('authorized succesfully');
   }else if(inputValue!==code && inputValue.length>0){
    res.send('authorized unsuccesfully');
   }
-  
-  console.log(code);
-  
-  })
+
+})
 
   app.get('/isAuth',(req,res)=>{
-
-    if(session && session.isAuthenticated && session.isAuthenticated===true){
-      res.send('true');
-    }else{
+   console.log(req.cookies);
+   
+   if(req.cookies.accesToken){
+   jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+    if(err){
       res.send('false');
+    }else{
+      res.send('true');
+      console.log(decoded);
     }
+   })
+  }else if(req.cookies.accesToken===undefined){
+    res.send('false')
+    console.log('token was undefined');
+  }
+  
   })
-
 
 app.post('/send_email',(req,res)=>{
 
@@ -170,28 +191,19 @@ app.post('/authenticate',(req,res)=>{
           }else{
             res.send('authenticated');
           sendEmail(email);
-          session.email=email;
-          session.password=password;
           }
         })
         .catch(err => console.error(err.message)) 
-
-
       }
     }
   })
 })
 
-app.post('/logOut',(req,res)=>{
-  
-  session.isAuthenticated=false;
-  session.email='';
-  session.password='';
-  session.username='';
-  console.log(session);
-  res.send('logOut');
-})
 
+app.get('/logout',isAuth,(req,res)=>{
+  res.clearCookie('accesToken');
+  res.send('loggedOut succefully');
+})
 
 app.listen(port,()=>{
     console.log('server started on port '+ port);
