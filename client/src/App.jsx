@@ -10,10 +10,11 @@ const Loading=lazy(()=>import('./Loading'));
 const ErrorPage=lazy(()=>import('./404'));
 const Login=lazy(()=>import('./Login'));
 const Shop=lazy(()=>import('./Shop'));
+const Cart=lazy(()=>import('./Cart'));
 
 const App=()=>{
 
-const [route,setRoute]=useState('')
+const [route,setRoute]=useState('');
 
   function get(data){
   setRoute(data);
@@ -30,6 +31,7 @@ return <Router>
     </Route>
   
    <Route path="/contact" element={<ContacMid />} />
+   <Route path="/cart" element={<Cart/>} />
 
     <Route path="/Shop" element={<Shop />} />
     <Route path="*" element={<ErrorPage />} />

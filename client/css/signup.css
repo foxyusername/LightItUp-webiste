@@ -7,7 +7,7 @@
     --gap-text:30px;
     --gap-signupInputs:18px;
     --forgotpassword-color:rgb(225, 225, 225);
-    --error-color:#FB3640;
+    --error-color:#ec0510;
     --gap-form:50px;
     --input-colors:#2D455E;
     --btn-color:#EE6F00;
@@ -210,8 +210,10 @@ form{
 }
 
 #register_error_message{
+    position: relative;
+    top:-100px;
   color: rgb(226, 226, 226);
-  background-color: rgb(187, 5, 5);
+  background-color:var(--error-color);
   justify-content: center;
   display: flex;
   max-width: 400px;

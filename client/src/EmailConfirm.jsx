@@ -41,6 +41,9 @@ function EmailConfirm({getProp,getBack,sendemail,reset,from,sendLoginEmail}) {
 
 
   function uploadData(username,email,password){
+
+console.log('username '+ username, "email "+email,"password "+password);
+
 axios.post('http://localhost:3000/verifycode',{
   inputValue: inputValue,
   username: username,

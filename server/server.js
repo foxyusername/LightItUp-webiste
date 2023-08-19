@@ -25,7 +25,7 @@ const isAuth = (req, res, next) => {
   if(req.cookies.accesToken){
   jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
     if(err){
-      res.send('invalid token value');
+      res.send('invalid token');
       console.log('invalid token');
     }else{
       console.log('authenticated succesfully');
@@ -40,7 +40,6 @@ const isAuth = (req, res, next) => {
 }
 
 app.use('/logout',isAuth);
-
 
 let max=9999;
 let min=1000;
@@ -97,11 +96,15 @@ app.post('/verifycode',(req,res)=>{
     let username=req.body.username;
     let password=req.body.password;
    
-   if(inputValue===''+code+'' && inputValue.length>0){
+   if(/*inputValue===''+code+'' &&*/ inputValue.length>0){
+     if(username!==undefined){
       registerUser(req,email,username,password);
+     }
 
     let token=jwt.sign({email:email,password:password},secret_key);
-    
+    console.log('hey email is   '+email);
+    console.log('hey password is   '+password);
+
     res.cookie('accesToken',token,{
       httpOnly: true,
       secure: false,
@@ -116,12 +119,11 @@ app.post('/verifycode',(req,res)=>{
 })
 
   app.get('/isAuth',(req,res)=>{
-   console.log(req.cookies);
    
    if(req.cookies.accesToken){
    jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
     if(err){
-      res.send('false');
+      res.send('invalid accesToken');
     }else{
       res.send('true');
       console.log(decoded);
@@ -135,7 +137,6 @@ app.post('/verifycode',(req,res)=>{
   })
 
 app.post('/send_email',(req,res)=>{
-
 
  pool.query('select * from users where email=?',[req.body.email],(err,result)=>{
     if(err){
@@ -165,15 +166,14 @@ app.post('/send_email',(req,res)=>{
 })
 
 app.get('/getcredentials',(req,res)=>{
-  console.log(email,password,username);
+  console.log("email is"+email,'password is '+password,'username is '+username);
   res.json({email: email, password: password, username: username});
 })
 
 app.post('/authenticate',(req,res)=>{
 
-  console.log(req.body);
- let email=req.body.email;
- let password=req.body.password;
+  email=req.body.email;
+  password=req.body.password;
 
   pool.query('select * from users where email=?',[email],(err,result)=>{
     if(err){
@@ -200,9 +200,100 @@ app.post('/authenticate',(req,res)=>{
 })
 
 
-app.get('/logout',isAuth,(req,res)=>{
+app.get('/logout',(req,res)=>{
   res.clearCookie('accesToken');
   res.send('loggedOut succefully');
+})
+
+app.post('/addToCart',(req,res)=>{
+  if(req.cookies.accesToken){
+ jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+  if(err){
+    res.send('invalid accesToken');
+    console.log('failed');
+  }else{
+   console.log(decoded);
+   
+   pool.query('select * from cartproducts where email=? and product_index=?',[decoded.email,req.body.index],(err,result)=>{
+     if(err){
+      console.log(err)
+     }else{
+
+      if(result.length===0){
+
+         pool.query('insert into cartproducts (email,product_index) values (?,?)',[decoded.email,req.body.index],(err,result)=>{
+    if(err){
+      console.log(err)
+    }else{
+      console.log('inserted product index succefully');
+    }
+   })
+
+  }else{
+    pool.query('delete from cartproducts where email=? and product_index=?',[decoded.email,req.body.index],(err,result)=>{
+      if(err){
+        console.log(err)
+      }else{
+        console.log('removed index succefully');
+      }
+     })
+  }
+     }
+   })
+
+
+  
+  
+  }
+ 
+ })
+  }else{
+    res.send('no token presented');
+    console.log('not token presented in addProduct route');
+  }
+})
+
+app.get('/checkCart',(req,res)=>{
+if(req.cookies.accesToken){
+
+jwt.verify(req.cookies.accesToken,secret_key,(error,decoded)=>{
+    if(error){
+    res.send('invalid accesToken');
+    console.log('invalid accesToken in checkcart route');
+    }else{
+    console.log(decoded);
+    
+   pool.query('select product_index from cartproducts where email=?',[decoded.email],(err,result)=>{
+  if(err){
+  console.log(err)
+  }else{
+   res.send(result);
+  }
+    })
+  }
+
+ 
+
+})
+}else{
+  res.send('no token presented');
+  console.log('not token presented in checkcart route');
+}
+
+    
+})
+
+app.get('/deleteFromProducts',(req,res)=>{
+
+  jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+    pool.query('delete from cartProducts where email=?',[decoded.email],(err,result)=>{
+      if(err){
+        console.log(err)
+      }else{
+        console.log('removed every row from cartProducts');
+      }
+    })
+  })
 })
 
 app.listen(port,()=>{

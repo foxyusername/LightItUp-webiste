@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye,faEyeSlash,faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
 import { useState,useEffect } from 'react';
 import axios from "axios";
+import "../css/alert.css";
 
 const EmailConfirm=lazy(()=>import('./EmailConfirm'));
 

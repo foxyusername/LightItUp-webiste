@@ -35,8 +35,10 @@
 }
 
 #loginError{
+  position: relative;
+  top:-100px;
   color: rgb(226, 226, 226);
-  background-color: rgb(187, 5, 5);
+  background-color:var(--error-color);
   justify-content: center;
   display: flex;
   max-width: 500px;
@@ -59,6 +61,7 @@
   font-size: 1.8rem;
   color:orange;
 }
+
 
 
 @media (hover:hover){

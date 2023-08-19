@@ -1,5 +1,6 @@
 import React, {lazy} from 'react'
 import "../css/signup.css";
+import "../css/alert.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye,faEyeSlash,faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
 import { useState,useEffect} from 'react';
