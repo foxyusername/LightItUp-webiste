@@ -10,9 +10,11 @@ require('dotenv').config();
 
 const pool=require('./database');
 
+//https://lightitupwow.netlify.app
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({credentials:true,origin:'https://lightitupwow.netlify.app'}));
+app.use(cors({credentials:true,origin:'http://localhost:5173'}));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
   extended:true
@@ -54,7 +56,7 @@ function sendEmail(to){
         secure: false,
         auth: {
           user: process.env.GMAIL_EMAIL,
-          pass: process.env.GMAIL_PASSOWRD,
+          pass: process.env.GMAIL_PASSWORD,
         },
       });
 
@@ -298,6 +300,9 @@ app.get('/deleteFromProducts',(req,res)=>{
 app.get('/',(req,res)=>{
   res.send('heelo world');
 })
+
+console.log(process.env.GMAIL_EMAIL,process.env.GMAIL_PASSWORD);
+
 app.listen(process.env.PORT || 3000,()=>{
-    console.log('server started on port '+ process.env.PORT);
+    console.log('server started on port 3000');
 })

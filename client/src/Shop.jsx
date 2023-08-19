@@ -25,7 +25,7 @@ useEffect(()=>{
   setCartAdded(Array[res.data.results.length].fill(true));
  }).catch((err)=>console.log(err));
 
-axios.get("'+import.meta.env.VITE_API_URL+'/isAuth",{
+axios.get(''+import.meta.env.VITE_API_URL+'/isAuth',{
  withCredentials:true
 }).then((res)=>{
    setAuth(res.data);

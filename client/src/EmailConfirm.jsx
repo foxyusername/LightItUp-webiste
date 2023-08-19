@@ -5,7 +5,6 @@ import axios from 'axios';
 
 
 function EmailConfirm({getProp,getBack,sendemail,reset,from,sendLoginEmail}) {
-
    let history=useNavigate();
 
    const [time, setTime] = useState(60);
@@ -67,7 +66,7 @@ axios.post(''+import.meta.env.VITE_API_URL+'/verifycode',{
  function checkCode(e){
 e.preventDefault();
 
-axios.get(''+import.meta.env.VITE_API_KEY+'/getcredentials').then((res)=>{
+axios.get(''+import.meta.env.VITE_API_URL+'/getcredentials').then((res)=>{
 console.log(res);
 uploadData(res.data.username,res.data.email,res.data.password);
 }
