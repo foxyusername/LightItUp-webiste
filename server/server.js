@@ -294,6 +294,10 @@ app.get('/deleteFromProducts',(req,res)=>{
     })
   })
 })
-app.listen(process.env.PORT,()=>{
+
+app.get('/',(req,res)=>{
+  res.send('heelo world');
+})
+app.listen(process.env.PORT || 3000,()=>{
     console.log('server started on port '+ process.env.PORT);
 })
