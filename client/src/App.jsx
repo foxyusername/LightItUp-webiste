@@ -4,13 +4,13 @@ import "./App.css";
 import Middleware from "../middleware/Middleware";
 import ContacMid from "../middleware/ContacMid";
 
-import Home from './home';
-import Signup from './Signup';
-import Loading from './Loading';
-import ErrorPage from './404';
-import Login from './Login';
-import Shop from './Shop';
-import Cart from './Cart';
+const Home=lazy(()=>import('./home'));
+const Signup=lazy(()=>import('./Signup'));
+const Loading=lazy(()=>import('./Loading'));
+const ErrorPage=lazy(()=>import('./404'));
+const Login=lazy(()=>import('./Login'));
+const Shop=lazy(()=>import('./Shop'));
+const Cart=lazy(()=>import('./Cart'));
 
 const App=()=>{
 
