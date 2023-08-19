@@ -11,7 +11,7 @@ const [total,setTotal]=useState([]);
 const [checkedout,setCheckedOut]=useState(false);
 
 useEffect(()=>{
-    axios.get('http://localhost:3000/isAuth',{
+    axios.get(''+import.meta.env.VITE_API_URL+'/isAuth',{
         withCredentials:true
       })
       .then((res)=>{
@@ -67,7 +67,7 @@ function checkout(){
    let emptyArray=JSON.stringify([]);
    localStorage.setItem('cartProducts',emptyArray);
 
-   axios.get("http://localhost:3000/deleteFromProducts",{
+   axios.get(''+import.meta.env.VITE_API_URL+'/deleteFromProducts',{
     withCredentials:true
    })
    .then((res)=>console.log(res))

@@ -7,7 +7,7 @@ function Middleware({get}) {
   const [isAuthenticated, setIsAuthenticated] = useState(null); // Use null as initial value for loading state
 
   useEffect(() => {
-    axios.get('http://localhost:3000/isAuth',{
+    axios.get(''+import.meta.env.VITE_API_URL+'/isAuth',{
       withCredentials:true,
     }).then((res) => {
         console.log(res.data);

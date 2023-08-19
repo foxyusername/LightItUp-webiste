@@ -9,8 +9,6 @@ import Trending from '../shop_components/Trending';
 import NewArrival from '../shop_components/NewArrival';
 import Allproducts from '../shop_components/Allproducts';
 import Footer  from "../home_components/Footer";
-import { json } from 'react-router-dom';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 function Shop(){
 
@@ -19,22 +17,21 @@ function Shop(){
   const [authenticated,setAuth]=useState(false);
   const [showError,setShowError]=useState('');
   const [time,setTime]=useState(5);
-  const [windowWidth,setWindowWidth]=useState(0);
 
 useEffect(()=>{
 
-  axios.get('https://api.unsplash.com/search/photos?query=lighter&per_page=39&client_id=vVIMtsRuzFnQRSufs0ZIsFx7LWHOd2pWQkd1bpl-QX4').then((res)=>{
+  axios.get('https://api.unsplash.com/search/photos?query=lighter&per_page=39&client_id='+import.meta.env.VITE_UNSPLASH_KEY+'').then((res)=>{
   setProducts(res.data.results);
   setCartAdded(Array[res.data.results.length].fill(true));
  }).catch((err)=>console.log(err));
 
-axios.get("http://localhost:3000/isAuth",{
+axios.get("'+import.meta.env.VITE_API_URL+'/isAuth",{
  withCredentials:true
 }).then((res)=>{
    setAuth(res.data);
 }).catch((err)=>{console.log(err)});
 
-axios.get('http://localhost:3000/checkCart',{
+axios.get(''+import.meta.env.VITE_API_URL+'/checkCart',{
   withCredentials:true
 }).then((res)=>{  
 
@@ -114,7 +111,7 @@ function convertProducts(newcartAdded){
     const newcartAdded=[...cartAdded];
     newcartAdded[index]=!newcartAdded[index];
 
-  axios.post('http://localhost:3000/addToCart',{
+  axios.post(''+import.meta.env.VITE_API_URL+'/addToCart',{
     index:index
   },{
     withCredentials:true

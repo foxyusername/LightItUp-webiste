@@ -18,7 +18,7 @@ function Hero({scroll}) {
   const number=550;
 
 useEffect(()=>{
- axios.get('http://localhost:3000/isAuth',{
+ axios.get(''+import.meta.env.VITE_API_URL+'/isAuth',{
   withCredentials:true,
  }).then((res)=>{
   setAuth(res.data);
@@ -60,7 +60,7 @@ function navigate(data){
 
 function logOut(){
 
-  axios.get('http://localhost:3000/logout',{
+  axios.get(''+import.meta.env.VITE_API_URL+'/logout',{
     withCredentials:true
   }).then((res)=>{
     if(res.data==='loggedOut succefully'){

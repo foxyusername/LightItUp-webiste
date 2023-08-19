@@ -44,7 +44,7 @@ function EmailConfirm({getProp,getBack,sendemail,reset,from,sendLoginEmail}) {
 
 console.log('username '+ username, "email "+email,"password "+password);
 
-axios.post('http://localhost:3000/verifycode',{
+axios.post(''+import.meta.env.VITE_API_URL+'/verifycode',{
   inputValue: inputValue,
   username: username,
   email:email,
@@ -67,7 +67,7 @@ axios.post('http://localhost:3000/verifycode',{
  function checkCode(e){
 e.preventDefault();
 
-axios.get('http://localhost:3000/getcredentials').then((res)=>{
+axios.get(''+import.meta.env.VITE_API_KEY+'/getcredentials').then((res)=>{
 console.log(res);
 uploadData(res.data.username,res.data.email,res.data.password);
 }

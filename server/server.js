@@ -12,7 +12,7 @@ const pool=require('./database');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({credentials:true,origin:'http://localhost:5173'}));
+app.use(cors({credentials:true,origin:'https://lightitupwow.netlify.app'}));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
   extended:true

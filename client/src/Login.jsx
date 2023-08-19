@@ -38,7 +38,7 @@ function authentication(){
 
   if(email.length>0 && password.length>0){
 
-    axios.post('http://localhost:3000/authenticate',{
+    axios.post(''+import.meta.env.VITE_API_URL+'/authenticate',{
       email: email,
       password: password
     }).then((res)=>{
