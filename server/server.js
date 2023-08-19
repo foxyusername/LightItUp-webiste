@@ -6,10 +6,9 @@ const bcrypt=require('bcrypt');
 const cookieParser=require('cookie-parser');
 const jwt=require('jsonwebtoken');
 const bodyParser=require('body-parser');
+require('dotenv').config();
 
 const pool=require('./database');
-const port=3000;
-const secret_key='secret';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +22,7 @@ app.use(bodyParser.urlencoded({
 const isAuth = (req, res, next) => {
 
   if(req.cookies.accesToken){
-  jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+  jwt.verify(req.cookies.accesToken,process.env.JWT_SECRET,(err,decoded)=>{
     if(err){
       res.send('invalid token');
       console.log('invalid token');
@@ -54,8 +53,8 @@ function sendEmail(to){
         port: 587,
         secure: false,
         auth: {
-          user: "lightitup063@gmail.com",
-          pass: "lgvhiahmzzietjze",
+          user: process.env.GMAIL_EMAIL,
+          pass: process.env.GMAIL_PASSOWRD,
         },
       });
 
@@ -101,7 +100,7 @@ app.post('/verifycode',(req,res)=>{
       registerUser(req,email,username,password);
      }
 
-    let token=jwt.sign({email:email,password:password},secret_key);
+    let token=jwt.sign({email:email,password:password},process.env.JWT_SECRET);
     console.log('hey email is   '+email);
     console.log('hey password is   '+password);
 
@@ -121,7 +120,7 @@ app.post('/verifycode',(req,res)=>{
   app.get('/isAuth',(req,res)=>{
    
    if(req.cookies.accesToken){
-   jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+   jwt.verify(req.cookies.accesToken,process.env.JWT_SECRET,(err,decoded)=>{
     if(err){
       res.send('invalid accesToken');
     }else{
@@ -207,7 +206,7 @@ app.get('/logout',(req,res)=>{
 
 app.post('/addToCart',(req,res)=>{
   if(req.cookies.accesToken){
- jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+ jwt.verify(req.cookies.accesToken,process.env.JWT_SECRET,(err,decoded)=>{
   if(err){
     res.send('invalid accesToken');
     console.log('failed');
@@ -256,7 +255,7 @@ app.post('/addToCart',(req,res)=>{
 app.get('/checkCart',(req,res)=>{
 if(req.cookies.accesToken){
 
-jwt.verify(req.cookies.accesToken,secret_key,(error,decoded)=>{
+jwt.verify(req.cookies.accesToken,process.env.JWT_SECRET,(error,decoded)=>{
     if(error){
     res.send('invalid accesToken');
     console.log('invalid accesToken in checkcart route');
@@ -285,7 +284,7 @@ jwt.verify(req.cookies.accesToken,secret_key,(error,decoded)=>{
 
 app.get('/deleteFromProducts',(req,res)=>{
 
-  jwt.verify(req.cookies.accesToken,secret_key,(err,decoded)=>{
+  jwt.verify(req.cookies.accesToken,process.env.JWT_SECRET,(err,decoded)=>{
     pool.query('delete from cartProducts where email=?',[decoded.email],(err,result)=>{
       if(err){
         console.log(err)
@@ -295,7 +294,6 @@ app.get('/deleteFromProducts',(req,res)=>{
     })
   })
 })
-
-app.listen(port,()=>{
-    console.log('server started on port '+ port);
+app.listen(process.env.PORT,()=>{
+    console.log('server started on port '+ process.env.PORT);
 })
