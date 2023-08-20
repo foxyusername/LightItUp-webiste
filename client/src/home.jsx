@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from "react"
+import React,{lazy,Suspense,useEffect} from "react"
 import "../css/home.css";
 import { useState,useEffect } from "react";
 import {useRef} from "react"
@@ -9,7 +9,6 @@ const Explore=lazy(()=>import('../home_components/Explore'));
 const Customers=lazy(()=>import('../home_components/Customers'));
 const Feedback=lazy(()=>import('../home_components/Feedback'));
 const Footer=lazy(()=>import('../home_components/Footer'));
-
 
 export default function Home(){
 
