@@ -9,7 +9,7 @@ function ContacMid() {
     const [isAuth,setisAuth]=useState(null);
   
 useEffect(()=>{
-    axios.get(''+import.meta.env.VITE_API_URL+'/isAuth',{
+    axios.get(import.meta.env.VITE_API_URL+'/isAuth',{
      withCredentials:true
     })
     .then((res)=>{
