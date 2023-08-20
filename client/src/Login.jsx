@@ -42,6 +42,7 @@ function authentication(){
       email: email,
       password: password
     }).then((res)=>{
+      console.log(res);
         if(res.data==="authenticated"){
          sessionStorage.setItem('submited','true');
          sessionStorage.setItem('email',email);
