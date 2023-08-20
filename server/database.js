@@ -1,10 +1,11 @@
 const mysql=require('mysql2');
+require('dotenv').config();
 
 const pool = mysql.createPool({
-    host:'localhost',
-    user:'root',
-    password: 'sql123sql',
-    database: 'lightitup'
+    host:process.env.DATABASE_HOST,
+    user:process.env.DATABASE_USERNAME,
+    password:process.env.DATABASE_PASSWORD,
+    database:process.env.DATABASE
   });
 
 module.exports=pool;
