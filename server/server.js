@@ -203,7 +203,13 @@ app.post('/authenticate',(req,res)=>{
 
 
 app.get('/logout',(req,res)=>{
-  res.clearCookie('accesToken');
+  
+  res.clearCookie('accesToken', {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none'
+  });
+
   res.send('loggedOut succefully');
 })
 
@@ -288,14 +294,15 @@ jwt.verify(req.cookies.accesToken,process.env.JWT_SECRET,(error,decoded)=>{
 app.get('/deleteFromProducts',(req,res)=>{
 
   jwt.verify(req.cookies.accesToken,process.env.JWT_SECRET,(err,decoded)=>{
-    pool.query('delete from cartProducts where email=?',[decoded.email],(err,result)=>{
+    pool.query('delete from cartproducts where email=?',[decoded.email],(err,result)=>{
       if(err){
         console.log(err)
       }else{
-        console.log('removed every row from cartProducts');
+        console.log('removed every row from cartproducts');
       }
     })
   })
+
 })
 
 app.get('/',(req,res)=>{
