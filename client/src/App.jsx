@@ -20,7 +20,7 @@ const [route,setRoute]=useState('');
 
 useEffect(()=>{
   if(!localStorage.getItem('Alert') || localStorage.getItem('Alert')!=='accepted'){
-   alert('!!If you are on a mobile device please make sure that Allow Cross-Website Tracking is turned off to get full website functionality!!'); 
+   alert('⚠️This website uses "Cross-Website Tracking" in order to avoid any possible errors or breaks please consider to allow "Cross-Website Tracking" in you browser settings'); 
    localStorage.setItem('Alert','accepted');
 }
  },[])
