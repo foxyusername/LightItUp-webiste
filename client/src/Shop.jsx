@@ -25,13 +25,13 @@ useEffect(()=>{
   setCartAdded(Array[res.data.results.length].fill(true));
  }).catch((err)=>console.log(err));
 
-axios.get(import.meta.env.VITE_API_URL+'/isAuth',{
+axios.get('https://lightitupapi.onrender.com/isAuth',{
  withCredentials:true
 }).then((res)=>{
    setAuth(res.data);
 }).catch((err)=>{console.log(err)});
 
-axios.get(import.meta.env.VITE_API_URL+'/checkCart',{
+axios.get('https://lightitupapi.onrender.com/checkCart',{
   withCredentials:true
 }).then((res)=>{  
 
@@ -111,7 +111,7 @@ function convertProducts(newcartAdded){
     const newcartAdded=[...cartAdded];
     newcartAdded[index]=!newcartAdded[index];
 
-  axios.post(import.meta.env.VITE_API_URL+'/addToCart',{
+  axios.post('https://lightitupapi.onrender.com/addToCart',{
     index:index
   },{
     withCredentials:true

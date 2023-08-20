@@ -9,7 +9,7 @@ export default function Hero({scroll}){
   const [authenticated,setAuthenticated]=useState(false);
 
   useEffect(()=>{
-  axios.get(import.meta.env.VITE_API_URL+'/isAuth',{
+  axios.get('https://lightitupapi.onrender.com/isAuth',{
     withCredentials:true
   }).then((res)=>{
     if(res.data===true){

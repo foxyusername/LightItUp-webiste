@@ -18,7 +18,7 @@ function Hero({scroll}) {
   const number=550;
 
 useEffect(()=>{
- axios.get(import.meta.env.VITE_API_URL+'/isAuth',{
+ axios.get('https://lightitupapi.onrender.com/isAuth',{
   withCredentials:true,
  }).then((res)=>{
   setAuth(res.data);
@@ -60,7 +60,7 @@ function navigate(data){
 
 function logOut(){
 
-  axios.get(import.meta.env.VITE_API_URL+'/logout',{
+  axios.get('https://lightitupapi.onrender.com/logout',{
     withCredentials:true
   }).then((res)=>{
     if(res.data==='loggedOut succefully'){

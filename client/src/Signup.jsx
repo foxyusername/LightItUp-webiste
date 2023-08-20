@@ -32,7 +32,7 @@ function sendemail(){
 
   const {email,username,password} =getValues();
 
-  axios.post(import.meta.env.VITE_API_URL+'/send_email',{
+  axios.post('https://lightitupapi.onrender.com/send_email',{
     email: email,
     username:username,
     password: password

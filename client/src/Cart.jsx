@@ -11,7 +11,7 @@ const [total,setTotal]=useState([]);
 const [checkedout,setCheckedOut]=useState(false);
 
 useEffect(()=>{
-    axios.get(import.meta.env.VITE_API_URL+'/isAuth',{
+    axios.get('https://lightitupapi.onrender.com/isAuth',{
         withCredentials:true
       })
       .then((res)=>{
@@ -67,7 +67,7 @@ function checkout(){
    let emptyArray=JSON.stringify([]);
    localStorage.setItem('cartProducts',emptyArray);
 
-   axios.get(import.meta.env.VITE_API_URL+'/deleteFromProducts',{
+   axios.get('https://lightitupapi.onrender.com/deleteFromProducts',{
     withCredentials:true
    })
    .then((res)=>console.log(res))
