@@ -96,7 +96,7 @@ app.post('/verifycode',(req,res)=>{
     let email=req.body.email;
     let username=req.body.username;
     let password=req.body.password;
-   
+   console.log('username is '+req.body.username);
    if(/*inputValue===''+code+'' &&*/ inputValue.length>0){
      if(username!==undefined){
       registerUser(req,email,username,password);
