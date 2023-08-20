@@ -65,6 +65,7 @@ function sendEmail(to){
         html:'<h3>verification code is '+code+'</h3>'
     }  
     transporter.sendMail(email).then((res)=>console.log('email sent succesfully')).catch((err)=>console.log(err));
+
 }
 
 function registerUser(req,email,username,password){
@@ -107,7 +108,8 @@ app.post('/verifycode',(req,res)=>{
 
     res.cookie('accesToken',token,{
       httpOnly: true,
-      secure: false,
+      secure: true, // Only send the cookie over HTTPS
+      sameSite: 'none', // Allow cross-site usage
       expiresIn: 432000000 // 5 days
     });
 
