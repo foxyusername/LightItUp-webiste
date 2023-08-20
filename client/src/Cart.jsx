@@ -26,15 +26,18 @@ useEffect(()=>{
 },[])
 
 useEffect(() => {
-    // Calculate the total cost based on quantity and prices
-    const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
-    const totalCost = cartProducts.reduce((total, result, index) => {
-      const value = quantity.find(res => res.id === index);
-      const count = value ? value.count : 1;
-      return total + result.likes * count;
-    }, 0);
-    setTotal(totalCost);
-  }, [quantity]);
+  // Calculate the total cost based on quantity and prices
+  const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+ if(cartProducts!==null && cartProducts.length!==0){
+  const totalCost = cartProducts.reduce((total, result, index) => {
+    const value = quantity.find(res => res.id === index);
+    const count = value ? value.count : 1;
+    return total + result.likes * count;
+  }, 0);
+
+  setTotal(totalCost);
+  }
+}, [quantity]);
 
 
 function increamentQuantity(id,arg){
