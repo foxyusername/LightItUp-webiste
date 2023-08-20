@@ -12,16 +12,18 @@ const Login=lazy(()=>import('./Login'));
 const Shop=lazy(()=>import('./Shop'));
 const Cart=lazy(()=>import('./Cart'));
 
+
+const App=()=>{
+
+const [route,setRoute]=useState('');
+
+
 useEffect(()=>{
   if(!localStorage.getItem('Alert') || localStorage.getItem('Alert')!=='accepted'){
    alert('!!If you are on a mobile device please make sure that Allow Cross-Website Tracking is turned off to get full website functionality!!'); 
    localStorage.setItem('Alert','accepted');
 }
  },[])
-
-const App=()=>{
-
-const [route,setRoute]=useState('');
 
   function get(data){
   setRoute(data);
