@@ -1,7 +1,8 @@
-import React,{lazy,Suspense,useEffect} from "react"
+import React,{lazy} from "react"
 import "../css/home.css";
 import { useState,useEffect } from "react";
 import {useRef} from "react"
+
 const Whyus=lazy(()=>import('../home_components/Whyus'));
 const Hero=lazy(()=> import('../home_components/Hero'));
 const About=lazy(()=>import('../home_components/About'));
