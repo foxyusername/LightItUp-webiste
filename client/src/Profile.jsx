@@ -23,7 +23,6 @@ function Profile() {
   const [cardNumber,setCardNumber]=useState('');
   const [securityCode,setSecurityCode]=useState('');
   const [imageChanger,setImageChanger]=useState(false);
-  const [cookieset,setCookieSet]=useState(false);
 
 
  useEffect(()=>{
@@ -36,11 +35,7 @@ function Profile() {
  
 checkImageUrl();
 
-if (Cookies.get('profileImageId') && Cookies.get('username') && Cookies.get('email')) {
-  setCookieSet(true);
-}
-
-},[Cookies.get('profileImageId'),Cookies.get('username'),Cookies.get('email'),Cookies.get('password')])
+},[])
 
 function checkImageUrl(){
 if(Cookies.get('profileImageId') && Cookies.get('username') && Cookies.get('email') && Cookies.get('password')){
@@ -123,7 +118,7 @@ function changeCard(){
   </div>
 
 
-{showpage==='profile' && cookieset ? <div className='profile_div'>
+{showpage==='profile' && <div className='profile_div'>
 <img src="https://wallpaperaccess.com/full/1152513.jpg" alt="orange color" />
 <div className='profile_main'>
 <section className='image_section'>
@@ -159,7 +154,7 @@ function changeCard(){
 
 </div>
 
-</div>: <Loading />}
+</div>}
 
 {showpage==='creditCard' && <div className='creditcard_div'>
  <div className='creditcard_main'>
