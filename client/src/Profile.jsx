@@ -211,7 +211,7 @@ function changeCard(){
 
 <div className='addcard_div'>
 <button onClick={()=>{setShowCardInfo(true)}}>Add Cart</button>
-</div> : !localStorage.getItem('isCard') && showCardInfo ?
+</div> : showCardInfo ?
 
 <div className='insert_card_info'>
    <form onSubmit={handleSubmit}>
