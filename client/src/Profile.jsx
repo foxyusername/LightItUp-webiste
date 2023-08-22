@@ -13,10 +13,9 @@ const ErrorPage=lazy(()=>import('../src/404'));
 //const ChooseImage=lazy(()=>import('../src/ChooseImage'));
 
 function Profile() {
-
-   const [auth,setAuth]=useState(null); 
-   const [showpage,setShowPage]=useState('profile');
-   const [info,setInfo]=useState([1,2,3,4]);
+  const [auth,setAuth]=useState(null); 
+  const [showpage,setShowPage]=useState('profile');
+  const [info,setInfo]=useState([1,2,3,4]);
   const [showCardInfo,setShowCardInfo]=useState(false);
   
   const [username,setUsername]=useState('');
@@ -26,6 +25,7 @@ function Profile() {
   const [imageChanger,setImageChanger]=useState(false);
 
  useEffect(()=>{
+  alertUser();
   axios.get('https://lightitupapi.onrender.com/isAuth',{
     withCredentials:true
   }).then((res)=>{
@@ -57,6 +57,14 @@ axios.get('https://lightitupapi.onrender.com/userCredentials',{
 }
   
 }).catch((err)=>console.log(err));
+}
+}
+
+
+function alertUser(){
+    if(!localStorage.getItem('gotProfileAlert')){
+ alert('DISCLAIMER: this website is built for demonstration purposes. if you decide to add credit card do not insert real information for your own safety');
+ localStorage.setItem('gotProfileAlert','true');        
 }
 }
  
@@ -109,7 +117,7 @@ function changeCard(){
   </div>
 
 
-{showpage==='profile' && <div className='profile_div'>
+{showpage==='profile' && Cookies.get('profileImageId') && Cookies.get('username') && Cookies.get('email') ? <div className='profile_div'>
 <img src="https://wallpaperaccess.com/full/1152513.jpg" alt="orange color" />
 <div className='profile_main'>
 <section className='image_section'>
@@ -145,7 +153,7 @@ function changeCard(){
 
 </div>
 
-</div>}
+</div> : <Loading />}
 
 {showpage==='creditCard' && <div className='creditcard_div'>
  <div className='creditcard_main'>
