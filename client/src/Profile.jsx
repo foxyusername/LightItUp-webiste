@@ -40,7 +40,7 @@ if (Cookies.get('profileImageId') && Cookies.get('username') && Cookies.get('ema
   setCookieSet(true);
 }
 
-},[])
+},[Cookies.get('profileImageId'),Cookies.get('username'),Cookies.get('email'),Cookies.get('password')])
 
 function checkImageUrl(){
 if(Cookies.get('profileImageId') && Cookies.get('username') && Cookies.get('email') && Cookies.get('password')){
