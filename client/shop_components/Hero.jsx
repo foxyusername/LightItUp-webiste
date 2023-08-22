@@ -112,7 +112,7 @@ function logOut(){
      <div className='userImage'> 
      {Cookies.get("profileImageId") ?
       <Image cloudName="dldonwgcr" publicId={Cookies.get('profileImageId')} alt="User's profile image"/> :
-      <img alt='user photo' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBhQ9vYdUgEcYpsV86g9ZZokEGTgBtJKciiA&usqp=CAU' />}
+      null}
       </div>
         </div>
     </div>
