@@ -70,8 +70,8 @@ function logOut(){
        Cookies.remove('username');
        Cookies.remove('email');
        Cookies.remove('profileImageId');
-
-    }
+       localStorage.clear();
+    } 
    
 }).catch((err)=>console.log(err));
   }
