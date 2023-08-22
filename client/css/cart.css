@@ -1,6 +1,6 @@
 :root{
     --cart_page_color:#E78635;
-    --cart-checkout:green;
+    --cart-checkout:linear-gradient(to right,rgb(30, 30, 234),rgb(247, 182, 60));
 }
 
 .cart_page{
@@ -16,7 +16,7 @@
    display: flex;
    flex-direction: column; 
    gap: 80px;
-   margin-top: 60px;
+   margin-top: 30px;
    align-items: center;
 }
 
@@ -37,11 +37,11 @@
 
 .cart_products_header{
     width: 100%;
-    display: flex;
+    display:none;
     justify-content:center;
     border-bottom: 2px solid rgb(96, 96, 96);
     align-items: center;
-    margin-top: 30px;
+    margin-top: 0px;
    padding-bottom:10px;
 }
 
@@ -139,25 +139,11 @@ text-align: center;
 
 
 .cart_checkout{
-    margin-top: 60px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
 }
-
-.cart_checkout h1{
-    color:rgb(2, 38, 83);
-    font-family:Oswald;
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 1000;
-    line-height: normal;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgb(96, 96, 96);
-    display: none;
-}
-
 .cart_checkout_total{
     display: flex;
     justify-content: space-between;
@@ -175,14 +161,14 @@ div.cart_checkout_total h3{
 }
 
 .cart_checkout button{
-    max-width:550px;
+    max-width:500px;
     width: 100%;
     height: 50px;
     margin: 0 auto;
     color: white;
-    background-color: var(--cart-checkout);
-    font-size: 1.5rem;
-    font-family:abril fatface;
+    background: var(--cart-checkout);
+    font-size: 1.8rem;
+    font-family:'Oswald';
     border-radius: 15px;
     cursor: pointer;
     margin-bottom: 30px;
@@ -204,20 +190,20 @@ div.cart_checkout_total h3{
 }
 
 #price_and_total div p{
-    font-size: 2rem;
-    font-family: abril fatface;
-    color: #393939;
+    font-size:2rem;
+    font-family:Oswald;
+    color: #000000;
 }
 
 #product_price h3{
     font-size: 1.3rem;
     font-family: abril fatface;
-    color: black;
+    color: rgb(7, 7, 7);
 }
 #total_product_price h3{
     font-size: 1.3rem;
-    font-family: abril fatface;
-    color:green;
+    font-family:abril fatface;
+    color:var(--cart_page_color)
 }
 
 .emptyCart{
@@ -262,7 +248,7 @@ div.cart_checkout_total h3{
 @media only screen and (min-width:1200px){
 .cart_products_body{
   grid-template-columns: repeat(3,1fr);
-  gap: 5px;
+  gap: 50px;
 }
 .cart_products_main{
     transform: scale(0.9);
@@ -274,11 +260,4 @@ div.cart_checkout_total h3{
 .cart_checkout h1{
     font-size:4rem;
   }
-}
-
-@media (hover:hover){
-    .cart_products_main:hover{
-        transition: all 0.1s ease;
-        transform: scale(0.95);
-    }
 }

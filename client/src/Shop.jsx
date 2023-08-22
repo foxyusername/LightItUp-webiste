@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react';
 import "../css/shop.css";
 import "../css/alert.css";
 import { useRef } from 'react';
+import { Image } from 'cloudinary-react';
 
 import Hero from '../shop_components/Hero';
 import Trending from '../shop_components/Trending';

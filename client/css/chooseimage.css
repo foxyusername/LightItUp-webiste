@@ -1,0 +1,215 @@
+:root{
+    --btn-color:orangered;
+}
+
+
+.imageChanger_div{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position:absolute;
+top:0px;
+width: 100%;
+min-height: 100%;
+height: auto;
+background-color:rgba(255, 255, 255, 0.811);
+}
+
+.imageChanger_div h1{
+    font-size: 3rem;
+    font-family: abril fatface;
+    color: rgb(45, 45, 45);
+    text-align: center;
+}
+
+.imageChanger_div form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:50px;
+    gap: 50px;
+}
+
+.file_input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.file_input button{
+    width:45%;
+    height: 40px;
+    font-size: 1.2rem;
+    background-color:var(--btn-color);
+    color: rgb(233, 233, 233);
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    max-width: 280px;
+    min-width: 150px;
+}
+
+#usersImage{
+    width: 180px;
+    height:180px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.uploadButtons{
+    display: flex;
+    gap: 20px;
+}
+
+.uploadButtons button{
+    width: 170px;
+    height: 35px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 4px black;
+    background-color: rgb(255, 255, 255);
+    color: rgb(20, 19, 19);
+    font-family: Oswald;
+    cursor: pointer;
+}
+
+.imageChanger_div h2{
+    position: absolute;
+    top:25px;
+    right: 25px;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes moveLeft { 
+    0% {
+    right: -400px;
+    }
+  
+    100% {
+      right: 20px;
+    }
+  }
+  
+  @keyframes moveRight{
+      0% {
+       right: 20px;
+      }
+      100% {
+      right:-400px;
+      }
+  }
+
+.uploadMessage{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: -400px;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+  width:auto;
+
+}
+
+.uploadMessage::before,.uploadMessage::after{
+    content: '';
+    border-bottom: 4px solid rgb(5, 200, 5);
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+}
+
+.uploadMessage::before,.uploadMessage::after{
+    content: '';
+    position: absolute;
+    transition: all 5s ease;
+    width: 0px;
+    height: 100%;
+}
+
+#uploadCheckmark{
+  width: 35px;
+  height: 35px;
+}
+.uploadMessage h3{
+    font-size: 1.7rem;
+    font-family: "Oswald";
+    color: rgb(24, 24, 24);
+}
+
+@media only screen and (max-width:381px){
+
+    .uploadButtons{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width:500px){
+
+   @keyframes moveLeft {
+    0% {
+        right: auto;
+        bottom:-150px;
+    }
+    100% {
+        right: auto;
+        bottom: 30px;
+    }
+   }
+
+   @keyframes moveRight {
+    0% {
+        right: auto;
+        bottom:30px;
+    }
+    100% {
+        right: auto;
+        bottom: -150px;
+    }
+   }
+
+
+   .uploadMessage{
+    width: 100%;
+    right: auto;
+    bottom:-150px;
+    justify-content: center;
+}
+
+.uploadMessage h3{
+    font-size:1.5rem;
+}
+
+}
+
+
+@media (hover:hover){
+.imageChanger_div h2:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+    transform: rotate(180deg);
+}    
+
+.uploadButtons button:hover{
+transition: all 0.2s ease-in;
+background-color: var(--btn-color);
+color: white;
+}
+
+}

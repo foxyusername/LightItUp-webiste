@@ -50,13 +50,13 @@ line-height: normal;
 
 .shop_hero_navigate{
     display: flex;
-    gap: 20px;
+    gap: 55px;
     align-items: center;
 }
 
 .shop_hero_navigate img{
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background-color: rgb(255, 255, 255);
     border-radius:50%;
     cursor: pointer;
@@ -66,58 +66,76 @@ line-height: normal;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    position: relative;
+    order: 2;
 }
 
 .shop_hero_hamburger div{
-    position: absolute;
-    padding: 3px;
-    background-color: var(--shop_hero_color);
-    text-align: center;
-    top:2.5rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 40px;
+   position:fixed;
+    left: 0px;
+    top:0px;
+    background-color:white;
+    color: black;
+    width: 100%;
+    height: 100svh; 
+    z-index: 1;
+}
+
+
+.shop_hero_hamburger p{
+    position:fixed;
+    top:15px;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1.8rem;
+    border-radius:5%;
+    color: white;
+    width: 40px;
+    height: 40px;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 1px 1px 6px rgb(29, 29, 29);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+   cursor: pointer;
+   z-index: 2;
+   text-align: center;
+   margin-top: 0px;
+   background-color: #E78635;
+}
+
+
+.shop_hero_hamburger div p{
+    background-color:transparent;
+    width: auto;
+    height: auto;
+    position: relative;
+    font-size: 3rem;
+    font-family: 'Oswald';
+    color: rgb(36, 36, 36);
 }
 
 .contact_cart{
-  display: flex;
-  gap: 15px;
-  font-size: 1.2rem;
-  color: #282828;
-  font-family: 'Yaldevi';
-  cursor: pointer;
+    margin-top: 0px;
+ display: flex;
+ gap: 15px;
+ margin-right: 20px;
 }
 
 .contact_cart p{
-    border: 1px solid black;
-    padding: 3px;
+    background-color: var(--shop_hero_color);
+    padding: 5px;
+    font-size: 1.3rem;
     border-radius: 10px;
-}
-
-.shop_hero_hamburger p{
-  font-size: 1.5rem;
-  color: rgb(50, 50, 50);
-  transition: all 0.2s ease;
- cursor: pointer;
-}
-
-.shop_hero_hamburger div{
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 2;
-}
-
-.shop_hero_hamburger div p{
-    font-size: 1.4rem;
-    color: rgb(236, 236, 236);
-    font-family: 'Yaldevi';
-    padding: 2px;
+    color: #f9f7f6;
+    font-family: 'Oswald';
+    cursor: pointer;
+    width: auto;
+    min-width: 80px;
+    text-align: center;
 }
 
 .shop_hero_heading{
@@ -154,53 +172,18 @@ line-height: normal;
     font-weight: 400;
 }
 .shop_heading_text button{
-    width: 200px;
-    height: 40px;
+    width: 280px;
+    height: 45px;
     color: #181818;
-font-family: Abril Fatface;
-font-size:1.3rem;
+font-family:Oswald;
+font-size:1.8rem;
 font-style: normal;
 font-weight: 400;
-background-color:var(--shop_hero_color);
-border: 0;
+background-color:white;
+border-radius: 15px;
+border: 1px solid black;
 outline: 0;
 }
-
-.userImage{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.userImage h2{
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.userImage_info{
-    position: absolute;
-    top: 70px;
-    text-align: center;
-    right: -40px;
-    border: 1px solid black;
-    box-shadow: 1px 1px 5px black;
-    border-radius: 10px;
-   display: flex;
-   flex-direction: column;
-   gap: 5px;
-   padding: 5px;
-   transform: scale(0.8);
-   background-color: white;
-}
-
-.userImage_info p{
-    font-size: 1.3rem;
-    cursor: pointer;
-    color: rgb(6, 6, 6);
-    background-color:#f09f5d;
-    border-radius: 10px;
-    padding:3px;
-}
-
 
 @media only screen and (min-width:750px){
 
@@ -244,18 +227,32 @@ outline: 0;
    .contact_cart{
     font-size: 1.4rem;
    }
+
+   .shop_hero_navigate{
+    gap:0px;
+   }
 }
 
 @media (hover:hover){
     .shop_heading_text button:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: all 0.2s ease; 
+        transition: all 0.2s ease;
+        cursor: pointer;
+        box-shadow:inset 300px 1px 1px 4px var(--shop_hero_color);
+        color: white;
+        transform: scale(1.06);
     }
 
     .contact_cart p:hover{
-        transition: all 0.05s ease;
-        background-color:#07477b;
+        background-color: white;
+        transition: all 0.2s ease;
+        border: 1px solid black;
+        box-shadow: 1px 1px 4px black;
+        color: rgb(28, 26, 26);
+    }
+
+    .contact_cart p:nth-child(4):hover{
+        box-shadow: 1px 1px 4px black;
+        background-color: rgb(234, 2, 2);
         color: white;
     }
 }

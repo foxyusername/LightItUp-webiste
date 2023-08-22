@@ -85,7 +85,7 @@ if(sessionStorage.getItem('submited')==='true' && authenticated==='true'){
    <div className='signup_inputs'>
    <input type='email' placeholder='email' onChange={(e)=>{setEmail(e.target.value)}}/>
    <div className='signup_password'>
-   <input type={visiblePassword ? 'text' : 'password'} placeholder='password' onChange={(e)=>{setPassword(e.target.value)}}/> 
+   <input type={visiblePassword ? 'text' : 'password'} placeholder='password' pattern=".*\S.*" onChange={(e)=>{setPassword(e.target.value)}}/> 
    <span onClick={showpassword}>{<FontAwesomeIcon icon={visiblePassword ? faEyeSlash : faEye } />}</span>
    </div>  
    </div>

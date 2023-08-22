@@ -1,0 +1,205 @@
+.profile_main_div{
+    width: 100%;
+    height: auto;
+    height: 100svh;
+    overflow: hidden;
+    display: flex;
+    gap: 10px;
+    background-color: rgb(230, 230, 230);
+}
+.credit_card_div{
+    display: none;
+}
+
+
+
+.profile_div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  flex:3;
+  background-color: white;
+  height: 100svh;
+  overflow: auto;
+}
+
+.profile_div img{
+    width: 100%;
+    height: 130px;
+}
+
+.profile_main{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  min-height: 80svh;
+}
+
+.image_section{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:30px;
+    gap: 25px;
+    width: 100%;
+    align-items: center;
+}
+
+.image_section img{
+  width:180px;
+  height:180px;
+  border-radius: 50%;
+}
+
+.image_section button{
+    width:80%;
+    max-width: 250px;
+    height: 35px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    background-color: white;
+    font-family: Oswald;
+    cursor: pointer;
+}
+
+.info_section{
+  margin-top: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 450px;
+}
+.info_section div{
+    border-bottom:1px solid #000000;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.info_section h2{
+    font-size: 1.3rem;
+    font-family:abril fatface;
+    color: rgb(90, 90, 90);
+}
+
+.info_section p{
+ font-size: 1.2rem;
+ color: rgb(43, 43, 43);
+ font-family: poppins;
+}
+
+.info_section button{
+    width: 100%;
+    height: 40px;
+    font-size: 1.3rem;
+    margin-top: 0px;
+    background-color: #E78635;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: 'Oswald';
+    color:rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width:1000px){
+
+   .info_section div h2{
+    font-size: 1.1rem;
+   }
+
+   .info_section div p{
+    font-size: 1.2rem;
+   }
+
+    .credit_card_div{
+        display: flex;
+      flex-direction: column;
+      flex: 1;
+      background-color: #f6f6f6;
+      max-height: 100svh;
+      z-index: 1;
+      gap: 0px;
+    }
+
+    .credit_card_div h1{
+        width: 100%;
+        height: 70px;
+        color: rgb(252, 252, 252);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid black;
+        background-color: rgb(3, 118, 207);
+        font-family:Yaldevi;
+    }
+
+  .credit_card_div section{
+    width: 100%;
+    height: 150px;
+    border-bottom: 1px solid rgb(91, 91, 91);
+    background:transparent;
+    color: rgb(196, 196, 196);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+
+  }
+
+  .credit_card_div section span{
+  font-size: 3rem;
+  }
+
+.credit_card_div section p{
+ font-size: 1.3rem;
+ font-family: Oswald;
+}
+  .info_section{
+    margin-bottom:20px;
+  }
+
+    .info_section button{
+        display: none;
+    }
+}
+
+
+@media (hover:hover){
+
+.image_section button:hover{
+ background-color: rgb(3, 118, 207);
+ color: white;
+ transition: all 0.2s ease;
+}
+
+    .credit_card_div section::before,
+    .credit_card_div section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0; 
+        border-left: 4px solid rgb(3, 118, 207); 
+        transition: all 0.3s ease; 
+    }
+
+    .credit_card_div section:hover::before,
+.credit_card_div section:hover::after {
+    height: 100%; 
+}
+
+.credit_card_div section:hover{
+    color: rgb(87, 170, 218);
+    cursor: pointer;
+}
+}

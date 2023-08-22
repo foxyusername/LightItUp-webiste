@@ -10,7 +10,7 @@ require('dotenv').config();
 
 const pool=require('./database');
 
-
+//https://lightitupwow.netlify.app
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({credentials:true,origin:'https://lightitupwow.netlify.app'}));
@@ -29,7 +29,8 @@ const isAuth = (req, res, next) => {
       console.log('invalid token');
     }else{
       console.log('authenticated succesfully');
-     next();
+      req.credentials=decoded;
+      next();
     }
 
   })
@@ -40,6 +41,8 @@ const isAuth = (req, res, next) => {
 }
 
 app.use('/logout',isAuth);
+app.use('/userCredentials',isAuth);
+app.use('/uploadImage',isAuth);
 
 let max=9999;
 let min=1000;
@@ -305,11 +308,33 @@ app.get('/deleteFromProducts',(req,res)=>{
 
 })
 
-app.get('/',(req,res)=>{
-  res.send('heelo world');
+app.get('/userCredentials',(req,res)=>{
+  console.log('user wants his credentials');
+
+  pool.query('select * from users where email=?',[req.credentials.email],(err,result)=>{
+    if(err){
+      console.log(err);
+      res.send({message:'fail'});
+    }else{
+      console.log(result);
+      res.send(result);
+    }
+  })
 })
 
-console.log(process.env.GMAIL_EMAIL,process.env.GMAIL_PASSWORD);
+app.post('/uploadImage',(req,res)=>{
+  console.log(req.body);
+
+  pool.query('update users set profileImg=? where email=?',[req.body.imageUrl,req.credentials.email],(err,result)=>{
+    if(err){
+      console.log(err)
+      res.send('fail');
+    }else{
+      console.log('succesfully update profile image');
+      res.send('succes');
+    }
+  })
+})
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log('server started on port 3000');

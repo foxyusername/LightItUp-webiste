@@ -11,7 +11,7 @@ const ErrorPage=lazy(()=>import('./404'));
 const Login=lazy(()=>import('./Login'));
 const Shop=lazy(()=>import('./Shop'));
 const Cart=lazy(()=>import('./Cart'));
-
+const Profile=lazy(()=>import('./Profile'));
 
 const App=()=>{
 
@@ -41,7 +41,7 @@ return <Router>
   
    <Route path="/contact" element={<ContacMid />} />
    <Route path="/cart" element={<Cart/>} />
-
+   <Route path="/Profile" element={<Profile />} />
     <Route path="/Shop" element={<Shop />} />
     <Route path="*" element={<ErrorPage />} />
     <Route path="/" element={<Home />} />

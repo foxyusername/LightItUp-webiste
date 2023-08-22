@@ -21,7 +21,7 @@ return (
                 <h3>{result.alt_description}</h3>
                 <p>price: {result.likes} $</p>
               </div>
-            {cartAdded[index] ? <div id='checkmark'> <img onClick={() => cartClicked(index)} src={'https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Artboard_9svg-512.png'} alt='checkmark symbol' /> </div> : <div id='cart'> <img onClick={() =>cartClicked(index)}  src='https://cdn3.iconfinder.com/data/icons/e-commerce-2-1/256/2-256.png' alt='cart symbol'/></div>}
+            {cartAdded[index] ? <div id='checkmark'> <img onClick={() => cartClicked(index)} src={'https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Artboard_9svg-512.png'} alt='checkmark symbol' /> </div> : <div id='cart'> <p onClick={() =>cartClicked(index)}>Add to Cart</p></div>}
             </div>
           </div>
         ))}

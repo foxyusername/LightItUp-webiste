@@ -1,0 +1,234 @@
+.creditcard_div{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(244, 244, 244);
+    height: 100svh;
+    overflow: auto;
+}
+
+.creditcard_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    max-width: 520px;
+}
+
+.addcard_div button{
+    width: 400px;
+    height:70px;
+    font-size: 2rem;
+    font-family: Oswald;
+    background-color: rgb(24, 110, 172);
+    color: white;
+    box-shadow: 1px 1px 10px black;
+    cursor: pointer;
+}
+
+
+
+.insert_card_info{
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-self: flex-start;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.goBack{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.goBack p{
+    font-size: 1.5rem;
+}
+
+.insert_card_info img{
+    width: 100%;
+    height: auto;
+    margin-top: -20px;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.insert_inputs{
+    display: flex;
+    flex-direction: column;
+   width:100%;
+   align-items: center;
+   gap: 30px;
+}
+
+.insert_inputs div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.insert_inputs div p{
+     color: rgb(86, 86, 86);
+  font-size: 1rem;
+  font-family:abril fatface;
+}
+
+
+.insert_inputs div input{
+    width:100%;
+    border: 0;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    outline: 0;
+    padding: 3px;
+    font-family: poppins;
+    background-color: transparent;
+}
+
+.insert_inputs section{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 40px;
+}
+
+.insert_inputs section div{
+    width: 100%;
+}
+
+.insert_card_info button{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: 45px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background:linear-gradient(to right,rgb(187, 33, 187),rgb(255, 179, 39));  
+    border: none;
+    font-family: Oswald;
+    border: 1px solid black;
+    border-radius: 15px;
+    max-width: 450px;
+    color: white;
+}
+
+
+
+.reviewcreditcard{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 100%;
+    align-items: center;
+}
+
+.cardillustration{
+    display: flex;
+    flex-direction: column;
+    border:1px solid red;
+    width: 80%;
+    border-radius: 10px;
+    height: 220px;
+    margin-top:40px;
+    background-image: url('https://images.all-free-download.com/images/graphiclarge/orange_blurred_lights_200265.jpg');
+}
+.cardillustration div{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.cardillustration div img{
+    width: 80px;
+    align-self: flex-end;
+}
+
+.mastercard_values{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   margin-top: 40px;
+}
+.mastercard_values div{
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cardillustration h1{
+    color: white;
+    margin-left: 10px;
+}
+
+.cardillustration p{
+ color: rgb(226, 226, 226);
+ font-family: Oswald;
+ font-size: 1rem;
+}
+
+
+.card_info_section{
+    display: flex;
+    flex-direction:column;
+    align-self: flex-start;
+    align-items:center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.card_info_section div{
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+    width: 80%;
+}
+
+.card_info_section div p{
+font-family: abril fatface;
+font-size: 1.2rem;
+color: rgb(84, 84, 84);
+}
+
+.card_info_section div h2{
+font-family: poppins;
+font-size: 1.3rem;
+color: rgb(39, 39, 39);
+}
+
+.reviewcreditcard button{
+ width: 80%;
+ height: 50px;
+ font-size: 1.7rem;
+ font-family:Oswald;
+ background-color:#fc8c15;
+ margin-top: 30px;
+ cursor: pointer;
+ border-radius: 15px;
+color: white;
+}
+
+@media (hover:hover){
+.insert_card_info button:hover{
+transition: all 0.3s ease;
+box-shadow: inset 500px 1px 1px 10px #E78635;
+color: white;
+}
+
+.goBack p:hover{
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    transform: rotate(360deg);
+}
+}

@@ -10,7 +10,10 @@ function Allproducts({cartClicked,products,cartAdded}) {
 
   const Allproducts=products.slice(startNumber,endNumber);
 
-  return <div className='allproducts'>
+  return <div className='center_allproducts'>
+  
+  <div className='allproducts'>
+
    {Allproducts.map((result,index)=>{
     
   return  <div className='allproducts_main' key={index}>
@@ -21,13 +24,14 @@ function Allproducts({cartClicked,products,cartAdded}) {
     <h3>{result.alt_description}</h3>
    <p>price: {result.likes} $</p>
   </div>
- {!cartAdded[index+startNumber] ? <div id='cart'><img onClick={()=>{cartClicked(index+startNumber)}} alt='cart symbol' src='https://cdn3.iconfinder.com/data/icons/e-commerce-2-1/256/2-256.png' /></div>: <div id='checkmark'><img alt='checkmark symbol' onClick={()=>{cartClicked(index+startNumber)}} src='https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Artboard_9svg-512.png' /></div>}
+ {!cartAdded[index+startNumber] ? <div id='cart'><p onClick={()=>{cartClicked(index+startNumber)}}>Add to Cart</p></div>: <div id='checkmark'><img alt='checkmark symbol' onClick={()=>{cartClicked(index+startNumber)}} src='https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Artboard_9svg-512.png' /></div>}
   </div>
 
  </div>
    })}
   
 
+</div>
 </div>
 }
 

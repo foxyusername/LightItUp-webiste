@@ -31,7 +31,7 @@ function visibleText(data){
 
     return <div className="HeroSection">
      <div className="Hero_content_div">
-    <Navbar scroll={scroll} visibleText={visibleText} authenticated={authenticated} />
+<Navbar scroll={scroll} visibleText={visibleText} authenticated={authenticated} />
     <Heading visible={visible} authenticated={authenticated} />
      </div>
      </div>

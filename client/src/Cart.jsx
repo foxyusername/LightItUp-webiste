@@ -107,7 +107,7 @@ const value=quantity.find(res=>res.id===index);
 
 const count=value ? value.count : 1;
 
-return <div className='cart_products_main' key={index}>
+return <div className='cart_products_main' data-aos="fade-left" data-aos-duration="200" data-aos-once="true" key={index}>
 
  <div>
     <p>PRODUCT</p>
@@ -148,8 +148,6 @@ return <div className='cart_products_main' key={index}>
    </section>
 
    <section className='cart_checkout'> 
-    <h1>Order Summary</h1>
-
     <div className='cart_checkout_total'>
         <h3>TOTAL COST</h3>
         <p>$ {total}</p>

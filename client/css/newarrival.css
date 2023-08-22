@@ -50,7 +50,7 @@ font-weight: 400;
 .img_price_description{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
     align-items: center;
     position: relative;
 }
@@ -64,7 +64,7 @@ font-weight: 400;
 
 .grid_layout_div{
     display: grid;
-    gap: 50px;
+    gap: var(--gap-shop-main);
     grid-template-columns: repeat(1,1fr);
 }
 
@@ -101,7 +101,7 @@ font-weight: 400;
     }
 }
 
-@media only screen and (min-width:1000px){
+@media only screen and (min-width:1200px){
     .grid_layout_div{
         grid-template-columns: repeat(4,1fr);
        gap: 50px;

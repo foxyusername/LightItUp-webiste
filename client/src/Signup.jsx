@@ -81,7 +81,7 @@ function sendemail(){
     return <div className='signup'>
     <div className='signup_section'>
     {showError && <div id='register_error_message'>
-      <span><FontAwesomeIcon icon={faTriangleExclamation} /></span>
+    <span><FontAwesomeIcon icon={faTriangleExclamation} /></span>
       <p>{errorMessage}</p>
       </div>}
   {!errorMessage && <div className='signup_logo'>

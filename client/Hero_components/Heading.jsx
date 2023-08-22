@@ -15,7 +15,7 @@ return <div className="Heading">
             }else{
                 history('/signup')
             }
-        }}>buy now</button>
+        }}>Buy now</button>
         </div>
         <div className="photo_grid">
         <img src="https://i.pinimg.com/564x/98/e8/d4/98e8d4f9255b787357bdb92f291179e7.jpg" />

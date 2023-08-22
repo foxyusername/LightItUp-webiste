@@ -47,7 +47,7 @@ font-weight: 400;
     text-align: center;
     padding: 5px;
     align-items: center;
-    gap: 15px;
+    gap: 22px;
     position: relative;
 }
 
@@ -80,7 +80,8 @@ font-weight: 400;
    transform: rotateY(0deg);
 }
 
-@media only screen and (min-width:740px){
+@media only screen and (min-width:800px){
+
  .shop_trending_content{
     grid-template-columns: repeat(3,1fr);
    justify-content: space-between; 

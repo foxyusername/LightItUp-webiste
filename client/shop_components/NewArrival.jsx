@@ -23,7 +23,7 @@ const NewArrival=products.slice(startNumber,endNumber);
  <p>price: {result.likes} $</p>
  </div>
 
- {!cartAdded[index+startNumber] ? <div id='cart'><img onClick={()=>{cartClicked(index+startNumber)}} src='https://cdn3.iconfinder.com/data/icons/e-commerce-2-1/256/2-256.png' alt='cart symbol' /></div> : <div id='checkmark'><img onClick={()=>{cartClicked(index+startNumber)}}  src='https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Artboard_9svg-512.png' alt='checkmark symbol'/></div>}
+ {!cartAdded[index+startNumber] ? <div id='cart'><p onClick={()=>{cartClicked(index+startNumber)}}>Add to Cart</p></div> : <div id='checkmark'><img onClick={()=>{cartClicked(index+startNumber)}}  src='https://cdn0.iconfinder.com/data/icons/simply-orange-1/128/Artboard_9svg-512.png' alt='checkmark symbol'/></div>}
   </div>
 </div>
   })}

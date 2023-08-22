@@ -13,19 +13,19 @@ const [showNav,setShowNav]=useState(false);
 function changeNav(){
  if(showNav){
     setShowNav(false);
-    visibleText(true);
    }else{
     setShowNav(true);
-   visibleText(false); 
   }
 }
 
 function aboutClick(){
 scroll('about');
+setShowNav(false);
 }
 
 function contactClick(){
  scroll('contact');
+ setShowNav(false);
 }
 
 const history=useNavigate();
@@ -36,11 +36,11 @@ return <div className="Navbar">
        <p>LightItUp</p>
         </div>
         <div className="navigation">
-        <button style={ { transform:showNav ? 'rotate(-90deg)' : 'rotate(0deg)',transition:'transform 0.2s ease'}} onClick={changeNav}><FontAwesomeIcon icon={faBars}/></button>
+        <button style={ { transform:showNav ? 'rotate(180deg)' : 'rotate(0deg)',transition:'transform 0.3s ease-in-out'}} onClick={changeNav}><FontAwesomeIcon icon={faBars}/></button>
         <div className="navigation_p" style={showNav ? { display: "flex"} : {}}>
         <p onClick={aboutClick}>About</p>
         <p onClick={contactClick}>Contact</p> 
-       {!authenticated ? <p onClick={()=>{history('/signup')}}>sign up</p> : <p onClick={()=>{history('/Shop')}}>Shop</p>}
+       {!authenticated ? <p onClick={()=>{history('/signup')}}>Sign up</p> : <p onClick={()=>{history('/Shop')}}>Shop</p>}
         </div> 
 
         </div>
