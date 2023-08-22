@@ -26,7 +26,6 @@ function Profile() {
   const [imageChanger,setImageChanger]=useState(false);
 
  useEffect(()=>{
-  alertUser();
   axios.get('https://lightitupapi.onrender.com/isAuth',{
     withCredentials:true
   }).then((res)=>{
@@ -58,14 +57,6 @@ axios.get('https://lightitupapi.onrender.com/userCredentials',{
 }
   
 }).catch((err)=>console.log(err));
-}
-}
-
-
-function alertUser(){
-    if(!localStorage.getItem('gotProfileAlert')){
- alert('DISCLAIMER: this website is built for demonstration purposes. if you decide to add credit card do not insert real information for your own safety');
- localStorage.setItem('gotProfileAlert','true');        
 }
 }
  
