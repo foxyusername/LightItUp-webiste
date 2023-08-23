@@ -159,7 +159,7 @@ function changeCard(){
 
 </div>
 
-</div>:<Loading />}
+</div>: loading===true && showpage==='profile' ? <Loading /> : null}
 
 {showpage==='creditCard' && <div className='creditcard_div'>
  <div className='creditcard_main'>
