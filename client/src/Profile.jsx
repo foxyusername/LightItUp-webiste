@@ -23,6 +23,7 @@ function Profile() {
   const [cardNumber,setCardNumber]=useState('');
   const [securityCode,setSecurityCode]=useState('');
   const [imageChanger,setImageChanger]=useState(false);
+  const [loading,setLoading]=useState(true);
 
 
  useEffect(()=>{
@@ -40,6 +41,7 @@ checkImageUrl();
 function checkImageUrl(){
 if(Cookies.get('profileImageId') && Cookies.get('username') && Cookies.get('email') && Cookies.get('password')){
   console.log('credentials already exist');
+  setLoading(false);
 }else{
   console.log('cookies doesnt exist going to get one');
 axios.get('https://lightitupapi.onrender.com/userCredentials',{
@@ -55,6 +57,9 @@ axios.get('https://lightitupapi.onrender.com/userCredentials',{
 }
   Cookies.set('username',res.data[0].username);
   Cookies.set('email',res.data[0].email);
+
+   setLoading(false);
+  
 }
   
 }).catch((err)=>console.log(err));
@@ -118,7 +123,7 @@ function changeCard(){
   </div>
 
 
-{showpage==='profile' && <div className='profile_div'>
+{showpage==='profile' && loading===false ? <div className='profile_div'>
 <img src="https://wallpaperaccess.com/full/1152513.jpg" alt="orange color" />
 <div className='profile_main'>
 <section className='image_section'>
@@ -154,7 +159,7 @@ function changeCard(){
 
 </div>
 
-</div>}
+</div>:<Loading />}
 
 {showpage==='creditCard' && <div className='creditcard_div'>
  <div className='creditcard_main'>
