@@ -40,6 +40,8 @@ You can access the LightItUp demonstration website by visiting: (https://lightit
 ## Disclaimer
 
 Please be aware that LightItUp is a fictional website created purely for demonstration purposes. No real transactions or personal information are involved. Enjoy exploring the simulated shopping experience provided by LightItUp.
+ 
+Also note that the websites server and database are hosted on free plan and they work properly for 23 days a month after that they shut down untill the next month arrives and credits reset.
 
 ## Credits
 
